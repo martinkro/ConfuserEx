@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace ObfuscarTestLib
 {
-    public class Class1
+    class SkeletonAnimation:SkeletonRenderer,ISkeletonAnimation
     {
+        public override string ToString()
+        {
+            return "SkeletonAnimation";
+        }
     }
 }
