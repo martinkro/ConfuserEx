@@ -116,7 +116,7 @@ namespace Confuser.Renamer {
 		}
 
 		public RenameMode GetRenameMode(object obj) {
-			return context.Annotations.Get(obj, RenameModeKey, RenameMode.Unicode);
+			return context.Annotations.Get(obj, RenameModeKey, RenameMode.ASCII);
 		}
 
 		public void SetRenameMode(object obj, RenameMode val) {

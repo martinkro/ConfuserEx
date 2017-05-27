@@ -52,8 +52,11 @@ namespace Confuser.Core {
 		/// <param name="components">The working list of components.</param>
 		/// <param name="asm">The assembly.</param>
 		protected static void AddPlugins(
-			ConfuserContext context, IList<Protection> protections, IList<Packer> packers,
-			IList<ConfuserComponent> components, Assembly asm) {
+			ConfuserContext context, 
+            IList<Protection> protections, 
+            IList<Packer> packers,
+			IList<ConfuserComponent> components, 
+            Assembly asm) {
 			foreach(var module in asm.GetLoadedModules())
 				foreach (var i in module.GetTypes()) {
 					if (i.IsAbstract || !HasAccessibleDefConstructor(i))
@@ -61,7 +64,11 @@ namespace Confuser.Core {
 
 					if (typeof(Protection).IsAssignableFrom(i)) {
 						try {
-							protections.Add((Protection)Activator.CreateInstance(i));
+                            if( i.Name == "NameProtection")
+                            {
+                                protections.Add((Protection)Activator.CreateInstance(i));
+                            }
+                            
 						}
 						catch (Exception ex) {
 							context.Logger.ErrorException("Failed to instantiate protection '" + i.Name + "'.", ex);

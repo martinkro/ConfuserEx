@@ -1,0 +1,15 @@
+<project outputDir="F:\projects\ConfuserEx\testdata\Confused" baseDir="F:\projects\ConfuserEx\testdata" seed="obfuscar" xmlns="http://confuser.codeplex.com">
+  <rule pattern="true" inherit="false">
+    <protection id="rename" />
+  </rule>
+  <module path="ObfuscarTestExe.exe">
+    <rule pattern="true" inherit="false">
+      <protection id="rename" />
+    </rule>
+  </module>
+  <module path="ObfuscarTestLib.dll">
+    <rule pattern="true" inherit="false">
+      <protection id="rename" />
+    </rule>
+  </module>
+</project>
